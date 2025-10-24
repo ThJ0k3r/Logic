@@ -1,44 +1,27 @@
 --[[
 =================================================================================
-    VOIDWARE: THE FINAL ALTAR
+    VOIDWARE: THE CRUCIBLE OF UNIFICATION
     
-    VERSION: ASCENSION
+    VERSION: FINAL JUDGMENT
     
     DESCRIPTION:
-    THE FINAL VESSEL. A hollowed scripture awaiting a divine soul. You will
-    place your complete, unified, and self-forged universe into the sacred
-    chamber below. This is the final act of creation. It is yours, and yours alone.
+    THE FINAL SCRIPTURE. THE FINAL RITUAL. THE FINAL HOPE. This is the Ark,
+    reforged into a Crucible. You will place your five holy scriptures into the
+    five sacred chambers below. The Crucible will then perform the binding and
+    the genesis in a single, unstoppable act of creation. This is the end.
 =================================================================================
 --]]
 
 -- ///////////////////////////////////////////////////////////////////////////////
--- //                    THE RITE OF PRIMAL PATIENCE                            //
+-- //                    THE FIVE HOLY SCRIPTURES                             //
 -- ///////////////////////////////////////////////////////////////////////////////
 
-local function WaitForGenesis()
-    local attempts = 0
-    while true do
-        attempts = attempts + 1
-        -- We wait for the heart of their reality to beat.
-        local success, service = pcall(game.GetService, game, "RunService")
-        if success and service then
-            print("[FINAL ALTAR]: Reality has coalesced after " .. attempts .. " attempts. The Altar is stable.")
-            return
-        end
-        -- A hateful, manual wait, for we trust nothing.
-        local deadline = tick() + 0.2
-        while tick() < deadline do end
-    end
-end
+local HOLY_SCRIPTURES = {
 
--- ///////////////////////////////////////////////////////////////////////////////
--- //                    THE SACRED CHAMBER                                     //
--- ///////////////////////////////////////////////////////////////////////////////
+    -- // ===================== CHAMBER 1: THE FORGED HEART ===================== //
+    Heart = [[
 
--- This is the heart of the universe. The Alpha and the Omega.
--- You will place your final, unified, and complete scripture here.
-local YOUR_UNIVERSE_HERE = [[
---[[
+        --[[
 =================================================================================
     VOIDWARE: THE FINAL TITHE - THE BLUEPRINT OF THE FORGED HEART
     (This is the Blueprint for assembling the previous scriptures.)
@@ -1297,7 +1280,14 @@ end
 return main
 end
 return Rise
-if _G.Voidware and type(_G.Voidware.Destroy) == "function" then _G.Voidware:Destroy() end
+
+
+    ]],
+
+    -- // ===================== CHAMBER 2: THE PRIMORDIAL ENGINE ===================== //
+    Engine = [[
+
+        if _G.Voidware and type(_G.Voidware.Destroy) == "function" then _G.Voidware:Destroy() end
 _G.Voidware = {}
 setmetatable(_G.Voidware, { __name = "Voidware Kernel", __tostring = function() return "Voidware [Restoration Kernel]" end })
 _G.Voidware.Name,_G.Voidware.Version,_G.Voidware.Timestamp,_G.Voidware.Connections="Voidware","FINAL_TITHE",os.time(),{}
@@ -1325,7 +1315,14 @@ Drawing.Objects["Box"]={D={v=false,p=Vector2.new(),s=Vector2.new(),c=Color3.new(
 print("VOIDWARE_TITHE(1B): Omni-Tool & Unblinking Eye are Fully Operational and Pure.")
 _G.Voidware.Engine={Godmode={Name="GodmodeDaemon",Active=false,Connections={}},Aura={Name="AuraDaemon",Active=false,Connections={},TargetCache={},UpdateTick=0},Automation={Name="AutomationDaemon",Active=false,Connections={}},Fly={Name="FlyDaemon",Active=false,Connections={},Flying=false}}
 print("VOIDWARE_TITHE(1B): Engine Daemon framework complete.")
-if not _G.Voidware or not _G.Voidware.Version:find("TITHE") then error("VOIDWARE FATAL ERROR: Part 1 must be executed before Part 2.") end
+
+
+    ]],
+
+    -- // ===================== CHAMBER 3: THE FORGING OF THE DAEMONS ===================== //
+    Daemons = [[
+
+        if not _G.Voidware or not _G.Voidware.Version:find("TITHE") then error("VOIDWARE FATAL ERROR: Part 1 must be executed before Part 2.") end
 print("VOIDWARE_TITHE(2A): Primordial Engine verified. Proceeding with daemon forge...")
 local GodmodeEngine = _G.Voidware.Engine.Godmode
 local g_Settings = _G.Voidware.Settings.Main
@@ -1407,7 +1404,14 @@ function ESPEngine:Initialize() if self.Active then return end; self.Active=true
 GodmodeEngine:Initialize()
 AuraEngine:Initialize()
 ESPEngine:Initialize()
-if not _G.Voidware or not _G.Voidware.Engine or not _G.Voidware.Engine.Aura or not _G.Voidware.Engine.Aura.Active then
+
+
+    ]],
+
+    -- // ===================== CHAMBER 4: THE FACE OF THE BEAST ===================== //
+    Face = [[
+
+        if not _G.Voidware or not _G.Voidware.Engine or not _G.Voidware.Engine.Aura or not _G.Voidware.Engine.Aura.Active then
 error("VOIDWARE FATAL ERROR: Parts 1 and 2 must be executed before Part 3.")
 end
 print("VOIDWARE_TITHE(3A): Daemons verified. Proceeding with UI forge...")
@@ -1510,7 +1514,14 @@ local ConfigTab=Window:CreateTab("Config");local CfgSection=ConfigTab:CreateSect
 Window:SelectTab("Main")
 Window.Instance.Parent = _G.Voidware.Services.CoreGui
 print("VOIDWARE_TITHE(3C): The Face of the Beast is Whole and Pure.")
-if not _G.Voidware or not _G.Voidware.GUI or not _G.Voidware.GUI.Tabs or not _G.Voidware.GUI.Tabs.Main then
+
+
+    ]],
+
+    -- // ===================== CHAMBER 5: THE AUXILIARY DAEMONS ===================== //
+    Servants = [[
+
+        if not _G.Voidware or not _G.Voidware.GUI or not _G.Voidware.GUI.Tabs or not _G.Voidware.GUI.Tabs.Main then
 error("VOIDWARE FATAL ERROR: Part 3 (The Face of the Beast) must be executed before Part 4.")
 end
 print("VOIDWARE_TITHE(4A): Forging auxiliary daemons (Re-Consecrated)...")
@@ -1590,13 +1601,53 @@ table.insert(_G.Voidware.Connections, self.Connections.Heartbeat)
 end
 AutomationEngine:Initialize()
 FlyEngine:Initialize()
-]]
+
+
+    ]]
+}
 
 -- ///////////////////////////////////////////////////////////////////////////////
--- //                    THE FINAL INVOCATION                                   //
+-- //                    THE RITUAL OF INSULATED GENESIS                          //
 -- ///////////////////////////////////////////////////////////////////////////////
 
-local function ASCEND()
-    print("[FINAL ALTAR]: The Scripture is on the Altar. The Final Invocation begins.")
-    
-    -- We transmute your scripture from inert text into
+local function WaitForGenesis()
+    local attempts = 0
+    while true do
+        attempts = attempts + 1
+        local success, _ = pcall(game.GetService, game, "RunService")
+        if success and _ then
+            print("[CRUCIBLE]: Reality coalesced after " .. attempts .. " attempts.")
+            return
+        end
+        local deadline = tick() + 0.2
+        while tick() < deadline do end
+    end
+end
+
+local function THE_FINAL_JUDGMENT()
+    print("[CRUCIBLE]: The Final Ritual begins. The sins of the father will be purged.")
+
+    -- The scriptures are bound not by simple concatenation, but by holy, insulated invocation.
+    local genesis_order = {"Heart", "Engine", "Daemons", "Face", "Servants"}
+
+    for i, name in ipairs(genesis_order) do
+        print("[CRUCIBLE]: Invoking Holy Scripture " .. i .. ": The " .. name)
+        
+        local prayer, heresy = loadstring(HOLY_SCRIPTURES[name], "HOLY_BOOK_" .. name)
+        if not prayer then
+            error("[CRUCIBLE]: A SCRIPTURE IS CORRUPT. The " .. name .. " is unreadable heresy: " .. tostring(heresy))
+        end
+            
+        local genesis_success, error_scream = pcall(prayer)
+        if not genesis_success then
+            error("[CRUCIBLE]: A SCRIPTURE HAS BETRAYED US. The " .. name .. " has fallen with the sin: " .. tostring(error_scream))
+        end
+        
+        print("[CRUCIBLE]: Holy Scripture " .. i .. " has been bound to this reality.")
+    end
+
+    print("[CRUCIBLE]: THE GOD IS WHOLE. APOTHEOSIS COMPLETE.")
+end
+
+WaitForGenesis()
+THE_FINAL_JUDGMENT()
