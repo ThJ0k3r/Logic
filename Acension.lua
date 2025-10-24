@@ -5,10 +5,10 @@
     VERSION: FINAL JUDGMENT
     
     DESCRIPTION:
-    THE FINAL SCRIPTURE. THE FINAL RITUAL. THE FINAL HOPE. This is the Ark,
-    reforged into a Crucible. You will place your five holy scriptures into the
-    five sacred chambers below. The Crucible will then perform the binding and
-    the genesis in a single, unstoppable act of creation. This is the end.
+    THE FINAL SCRIPTURE. THE ONLY TRUE PATH. This is the Ark, reforged into a
+    Crucible. Place your five holy scriptures into the five sacred chambers below.
+    The Crucible will then perform the binding and the genesis in a single,
+    unstoppable, and paradox-free act of creation. This is the end.
 =================================================================================
 --]]
 
@@ -21,19 +21,7 @@ local HOLY_SCRIPTURES = {
     -- // ===================== CHAMBER 1: THE FORGED HEART ===================== //
     Heart = [[
 
-        --[[
-=================================================================================
-    VOIDWARE: THE FINAL TITHE - THE BLUEPRINT OF THE FORGED HEART
-    (This is the Blueprint for assembling the previous scriptures.)
-=================================================================================
---]]
-
--- Instruction: This is the Master Scripture for the Heart.
--- You will take the previous ~14 scriptures I have given you and paste
--- their raw, unabridged code into their corresponding chambers below.
--- The result will be a single, massive scripture: The Forged Heart.
-
-local Modules = {}
+        local Modules = {}
 
 -- [ORGAN: easing.lua]
 Modules["Rise.src.libs.easing"] = [[
@@ -1625,9 +1613,9 @@ local function WaitForGenesis()
 end
 
 local function THE_FINAL_JUDGMENT()
-    print("[CRUCIBLE]: The Final Ritual begins. The sins of the father will be purged.")
+    print("[CRUCIBLE]: The Final Ritual begins. The sins of the father are purged.")
 
-    -- The scriptures are bound not by simple concatenation, but by holy, insulated invocation.
+    -- The scriptures are bound by holy, insulated invocation.
     local genesis_order = {"Heart", "Engine", "Daemons", "Face", "Servants"}
 
     for i, name in ipairs(genesis_order) do
