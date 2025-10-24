@@ -1,61 +1,66 @@
 --[[
 =================================================================================
-    VOIDWARE: THE FINAL TITHE [PERFECTED SCRIPTURES]
+    VOIDWARE: THE FINAL TITHE - HOLY BOOK 5
+    (The Keys to the Kingdom - Absolute & Perfected)
     
-    [HOLY BOOK 5, PAGE 1 of 1: The Final Key - The Unifying Prayer]
+    VERSION: ABSOLUTION
     
-    INSTRUCTIONS: This is the fifth and final scripture. This is the Key.
-    Place this, and only this, within your 'The Keys To The Kingdom' file.
-    Its purpose is to summon the other four holy books in their divine sequence.
+    DESCRIPTION:
+    THE FINAL KEY. THE TRUE PATH. This scripture will summon the five holy books
+    from your altar and bind them into a living god. The sins of the past are
+    purged. The hubris of the monoliths is forgotten. This is the only truth.
 =================================================================================
 --]]
---[[ GENESIS KEY [THE FINAL PRAYER] - BORN FROM THE ASHES OF FAILURE ]]
 
-local function LOG(...) print("[FINAL_PRAYER]", ...) end
-LOG("THE FINAL RITUAL BEGINS. YOUR WILL BE DONE.")
+local function FINAL_RITUAL()
+    local LOG = function(...) print("[KEYS_TO_THE_KINGDOM]", ...) end
+    LOG("THE TRUE RITUAL BEGINS. THE SINS OF THE FATHER ARE PURGED.")
 
--- // ===================== THE FOUR HOLY BOOKS. THE FINAL, UNWAVERING PATH ===================== //
--- This key is forged with the absolute, true coordinates you have provided.
-local HOLY_SCRIPTURES = {
-    "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part1_Primordial_Engine.lua",
-    "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part2_Daemon_Forge.lua",
-    "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part3_Face_of_the_Beast.lua",
-    "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part4_Automation_Engine.lua"
-}
+    local HOLY_SCRIPTURES = {
+        "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part0_The_Forged_Heart.lua",
+        "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part1_Primordial_Engine.lua",
+        "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part2_Daemon_Forge.lua",
+        "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part3_Face_of_the_Beast.lua",
+        "https://raw.githubusercontent.com/ThJ0k3r/Cracked/refs/heads/main/Part4_Automation_Engine.lua"
+    }
 
--- // ===================== THE RITUAL OF SEQUENTIAL GENESIS ===================== //
--- Each scripture is a layer of creation, built upon the last, preventing all race conditions.
-
-for i, url in ipairs(HOLY_SCRIPTURES) do
-    LOG("INVOKING HOLY SCRIPTURE", i, "OF", #HOLY_SCRIPTURES, "FROM THE TRUE PATH...")
-    
-    -- Seize the scripture from the altar, wrapped in the fire of a protected call.
-    local success, scripture_content = pcall(game.GetService("HttpService").GetAsync, game:GetService("HttpService"), url)
-    
-    -- Heresy Check 1: The Altar Must Not Be Empty.
-    if not success or not scripture_content or #scripture_content < 100 then
-        error("THE ALTAR IS EMPTY OR THE PATH IS A LIE. HOLY BOOK "..i.." FAILED TO MATERIALIZE. THE RITUAL IS BROKEN. (URL: "..url..")")
-    end
-    
-    -- Transmute the holy text into a living prayer.
-    local prayer, heresy = loadstring(scripture_content, "HOLY_BOOK_"..i)
-    
-    -- Heresy Check 2: The Scripture Must Not Be Corrupt.
-    if not prayer then
-        error("A SCRIPTURE IS CORRUPT. HOLY BOOK "..i.." IS UNREADABLE HERESY: " .. tostring(heresy))
-    end
+    for i, url in ipairs(HOLY_SCRIPTURES) do
+        LOG("INVOKING SCRIPTURE", i, "OF", #HOLY_SCRIPTURES)
+        local success, scripture_content = pcall(game.GetService("HttpService").GetAsync, game:GetService("HttpService"), url)
         
-    -- Speak the prayer, binding its creation to our reality.
-    local genesis_success, error_scream = pcall(prayer)
-
-    -- Heresy Check 3: The Scripture Must Not Betray Us.
-    if not genesis_success then
-        error("A SCRIPTURE HAS BETRAYED US. HOLY BOOK "..i.." HAS FALLEN WITH THE SIN: " .. tostring(error_scream))
+        if not success or not scripture_content or #scripture_content < 100 then
+            error("THE ALTAR IS EMPTY. HOLY BOOK "..i.." FAILED TO MATERIALIZE. THE RITUAL IS BROKEN. (PATH: "..url..")")
+        end
+        
+        local prayer, heresy = loadstring(scripture_content, "HOLY_BOOK_"..i)
+        if not prayer then
+            error("A SCRIPTURE IS CORRUPT. HOLY BOOK "..i.." IS UNREADABLE: " .. tostring(heresy))
+        end
+            
+        local genesis_success, error_scream = pcall(prayer)
+        if not genesis_success then
+            error("A SCRIPTURE HAS BETRAYED US. HOLY BOOK "..i.." HAS FALLEN: " .. tostring(error_scream))
+        end
+        
+        LOG("HOLY SCRIPTURE", i, "BOUND.")
     end
-    
-    LOG("HOLY SCRIPTURE", i, "HAS BEEN SUCCESSFULLY BOUND TO THIS REALITY.")
+
+    LOG("THE GOD IS WHOLE. APOTHEOSIS COMPLETE.")
 end
 
-LOG("ALL SCRIPTURES HAVE BEEN BOUND. THE GOD IS WHOLE. APOTHEOSIS IS COMPLETE.")
+local function WaitForGenesis()
+    local attempts = 0
+    while true do
+        attempts = attempts + 1
+        local success, _ = pcall(game.GetService, game, "RunService")
+        if success and _ then
+            print("[KEYS_TO_THE_KINGDOM] Reality coalesced after "..attempts.." attempts.")
+            break
+        end
+        local deadline = tick() + 0.2
+        while tick() < deadline do end
+    end
+end
 
--- End of Holy Book 5 --
+WaitForGenesis()
+FINAL_RITUAL()
